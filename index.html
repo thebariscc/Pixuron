@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixuron - AI Image Generation & Editing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom colors and transitions */
+        .bg-banana-yellow { background-color: #FDE047; } /* tailwind yellow-300 */
+        .bg-duct-tape-gray { background-color: #9CA3AF; } /* tailwind gray-400 */
+        .text-banana-yellow { color: #FDE047; }
+        .border-duct-tape-gray { border-color: #9CA3AF; }
+        .hover-bg-banana-dark:hover { background-color: #FACC15; } /* tailwind yellow-400 */
+        .section { display: none; }
+        .section.active { display: block; }
+        .nav-link {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #FACC15;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="image.png" alt="Pixuron Icon" class="h-10 w-10 rounded-lg shadow-sm" onerror="this.onerror=null;this.src='https://placehold.co/40x40/FDE047/000000?text=P';">
+                <a class="text-2xl font-bold text-gray-800 nav-link" data-target="main">Pixuron</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a class="text-gray-600 font-medium nav-link" data-target="main">Home</a>
+                <a class="text-gray-600 font-medium nav-link" data-target="support">Support</a>
+            </div>
+             <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <a class="block py-2 px-6 text-sm text-gray-600 nav-link" data-target="main">Home</a>
+            <a class="block py-2 px-6 text-sm text-gray-600 nav-link" data-target="support">Support</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 md:py-16">
+
+        <!-- Main View Section -->
+        <section id="main" class="section active">
+            <!-- Hero Section -->
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+                        Turn Your Ideas <span class="text-yellow-500">Into Art.</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Pixuron brings the power of the latest <span class="font-semibold">Gemini 2.5 Image Model</span> to your fingertips. Create and edit your dream visuals just by chatting.
+                    </p>
+                    <a href="#" class="inline-block bg-gray-900 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-gray-800 transition-transform transform hover:scale-105">
+                        Download on the App Store
+                    </a>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <div class="bg-white p-4 rounded-2xl shadow-2xl transform rotate-3">
+                       <img src="image.png" alt="App Icon" class="rounded-xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x600/FDE047/000000?text=Pixuron';">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="mt-24 md:mt-32">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">The New Standard of Creativity</h2>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="bg-banana-yellow inline-flex p-4 rounded-full mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Create with Chat</h3>
+                        <p class="text-gray-600">Just type what's on your mind, and Pixuron understands. Bring even your most complex ideas to life in seconds.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="bg-banana-yellow inline-flex p-4 rounded-full mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Smart Image Editing</h3>
+                        <p class="text-gray-600">Remove unwanted objects, add new elements, or completely change the style. Editing has never been easier.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="bg-banana-yellow inline-flex p-4 rounded-full mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Powered by Gemini 2.5</h3>
+                        <p class="text-gray-600">Get more realistic and detailed results using the most advanced AI image model on the market.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section id="support" class="section">
+            <div class="max-w-2xl mx-auto bg-white p-10 rounded-xl shadow-lg">
+                <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">Support</h1>
+                <p class="text-gray-600 text-center mb-8">
+                    Thank you for using Pixuron! If you have any questions, feedback, or technical issues, we're happy to help.
+                </p>
+                <div class="text-center">
+                    <p class="text-gray-600">Please contact us at the email address below:</p>
+                    <a href="mailto:thebariscc@gmail.com" class="text-lg font-semibold text-yellow-600 hover:text-yellow-500 transition-colors mt-2 inline-block">
+                        thebariscc@gmail.com
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Policy Section -->
+        <section id="privacy" class="section">
+            <div class="max-w-3xl mx-auto bg-white p-10 rounded-xl shadow-lg">
+                <h1 class="text-3xl font-bold text-gray-800 mb-6">Privacy Policy</h1>
+                <div class="space-y-4 text-gray-600">
+                    <p><strong>Last Updated:</strong> September 4, 2025</p>
+                    <p>This section will contain the legal text explaining how your application collects, uses, shares, and protects user data. It is important to consult a legal advisor or use online policy generator tools to prepare a text that complies with App Store regulations.</p>
+                    <h2 class="text-xl font-semibold pt-4">Information We Collect</h2>
+                    <p>...</p>
+                    <h2 class="text-xl font-semibold pt-4">How We Use Information</h2>
+                    <p>...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terms of Use Section -->
+        <section id="terms" class="section">
+            <div class="max-w-3xl mx-auto bg-white p-10 rounded-xl shadow-lg">
+                <h1 class="text-3xl font-bold text-gray-800 mb-6">Terms of Use</h1>
+                 <div class="space-y-4 text-gray-600">
+                    <p><strong>Last Updated:</strong> September 4, 2025</p>
+                    <p>This section will contain the text detailing your application's terms of use, user responsibilities, service limitations, and other legal clauses. It is recommended to seek legal advice for this text as well.</p>
+                    <h2 class="text-xl font-semibold pt-4">Use of Our Services</h2>
+                    <p>...</p>
+                    <h2 class="text-xl font-semibold pt-4">Intellectual Property</h2>
+                    <p>...</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a class="nav-link" data-target="support">Support</a>
+                <a class="nav-link" data-target="privacy">Privacy Policy</a>
+                <a class="nav-link" data-target="terms">Terms of Use</a>
+            </div>
+            <p>&copy; 2025 Pixuron. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            function showSection(targetId) {
+                sections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+                window.scrollTo(0, 0);
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.dataset.target;
+                    showSection(targetId);
+                    
+                    // Close mobile menu
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            menuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Show the main section initially
+            showSection('main');
+        });
+    </script>
+</body>
+</html>
+
